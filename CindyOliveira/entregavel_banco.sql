@@ -1,29 +1,5 @@
 USE sprint1;
 
-CREATE TABLE cadastro (
-idCadastro int primary key auto_increment,
-nome varchar (50) not null,
-dtNasc date,
-cpf char (11),
-telefone varchar (15),
-email varchar (80),
-senha varchar (90));
-
-SELECT * FROM cadastro;
-
-INSERT INTO cadastro VALUES
-(default, 'Julia Souza', '2001-12-30', '08588931890', '7598316-5934', 'juliasouza@gmail.com', '12345'),
-(default, 'Amanda Loures', '1999-10-21', '37599812385', '119786-4524', 'amandinha01@gmail.com', '895328'),
-(default, 'Roberto Gomes', '1990-05-17', '09155123170', '1198315-0897', 'robertog@outlook.com', '765b89'),
-(default, 'Fernanda Caramico', '2001-08-25', '04088712332', '3298897-7654', 'fernandacaramico@sptech.school', 'fe6589oo');
-
-SELECT * FROM cadastro;
-
-SELECT * FROM cadastro WHERE nome != 'Amanda Loures';
-
-DESCRIBE cadastro;
-
-
 CREATE TABLE ColdTrack (
 idColdTrack int primary key,
 cnpj char (14),
@@ -89,6 +65,36 @@ descricao varchar (100));
   (2, 'MetalFrio', 37768268000223, 'Gisele Bunchen', 'metalfrio.gelo@gmail.com', 'Rua Bela Vista', 245, 01197000);
   
   SELECT * FROM contratante;
+  
+  CREATE TABLE arduino (
+  idArduino int primary key,
+  modelo varchar (20),
+  localFisico varchar (40),
+  versao varchar (50));
+  
+  INSERT INTO arduino VALUES 
+  (1, 'UNO', 'Corredor de Refrigeração de Embutidos', 2.00),
+  (2, 'UNO', 'Corredor de Refrigeração de Bebidas', 2.00),
+  (3, 'UNO', 'Corredor de Refrigeração de Laticínios', 2.00),
+  (4, 'UNO', 'Corredor de Refrigeração de Congelados', 2.00);
+  
+  SELECT * FROM arduino;
+  
+  CREATE TABLE DadosArduino (
+  idDadosArduino int primary key,
+  registroTRCT5000 char(1),
+  registroLM35 float,
+  dataHoraRegistro datetime);
+  
+  INSERT INTO DadosArduino VALUES
+  (1, '1', 17.5, '2024-03-27 15:30'),
+  (2, '1', 18.0, '2024-03-27 15:31'),
+  (3, '0', 18.5, '2024-03-27 15:32'),
+  (4, '0', 19.0, '2024-03-27 15:33');
+  
+  SELECT * FROM DadosArduino;
+  
+  
   
  
  
