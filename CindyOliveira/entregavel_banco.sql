@@ -43,7 +43,7 @@ descricao varchar (100));
  DESCRIBE sensores;
  
  INSERT INTO sensores VALUES
- ('LM35', 'Monitorar Temperatura', 'Usaremos esse sensor para evitar a perca do seu produto', 1),
+ ('LM35', 'Monitorar Temperatura', 'Usaremos esse sensor para evitar a perda do seu produto', 1),
  ('TRC5000', 'Otimizar vendas', 'Ver qual produto está sendo mais requisitado', 2); 
  
  SELECT * FROM sensores;
