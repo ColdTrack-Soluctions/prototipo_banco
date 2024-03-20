@@ -22,9 +22,7 @@ valor float
 insert into refrigerador values 
 
 (default,'Área Frigorifica - NORTE','DuFrio','GPTU-40','2','Picanha',0,4,7565.09),
-
 -- OUTRO REFRIGERADOR EM OUTRA ÁREA
-
 (default,'Área Laticínios - SUL','Metal Frio','GPTU-40','1','Sorvete','-18','-20',7565.09);
 -- fonte https://www.foodconnection.com.br/sorvetes/como-armazenar-sorvete-da-forma-adequada-em-sua-sorveteria
 
@@ -100,8 +98,8 @@ SELECT * FROM dadosCaptura WHERE DATE(dataHora) = '2024-03-18';
 
 
 -- AQUI É ONDE ESTARA ARMAZENADOS OS DADOS DE CADASTRO DOS PONTOS DE VENDA 
-create table contratante(
-idContratante int primary key auto_increment,
+create table ponto_venda(
+idPontoVenda int primary key auto_increment,
 nomePontoDeVenda varchar(100) not null,
 emailPontoDeVenda varchar(100) not null,
 senha varchar(255),
@@ -112,17 +110,22 @@ numero varchar(10),
 cep char(8),
 complemento varchar(100),
 cidade varchar(50),
+estado varchar(50),
 pais varchar(50)
 );
 
--- INSERINDO EMPRESAS CONTRATANTES DE NOSSO SISTEMA
-insert into contratante values
-(null,'DuFrio','01754239000462','Augusto Fisher Melo','augusto.fisher.melo@dufrio.com','Praça Jácomo Zanella','187','05038010','Barra Funda - São Paulo'),
-(null,'Metal Frio','04821041000108',' Marcelo Lima',' marcelo.lima@metal.frio.com','Rua Abrahão Gonçalves Braga','412','09581680','Sacomã - São Paulo');
+-- INSERINDO EMPRESAS PONTO DE VENDA DE NOSSO SISTEMA
+insert into ponto_venda values
+
+(null,'Carrefour','administracao@carrefour.com','Password','xxxxxxxx','11111111111111',
+'Rua Abrahão Gonçalves Braga','412','00000000','Unidade Leste', 'São Paulo','São Paulo', 'Brasil'),
+
+(null,'Extra','administracao@extra.com','Password','xxxxxxxx','2222222222222',
+'Rua joão alves pimenta','201','00000000','Unidade Sul', 'São Paulo','Diadema', 'Brasil');
+
 
 -- MOSTRANDO TODOS OS NOSSOS CLIENTES JUNTAMENTE COM OS DEVIDOS DADOS
-select * from contratante;
-
+select * from ponto_venda;
 
 -- CRIANDO UMA TABELA SOBRE NÓS (COLD TRACK)
 create table coldtrack(
